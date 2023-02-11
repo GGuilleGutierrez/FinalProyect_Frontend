@@ -1,0 +1,6 @@
+mat-toolbar {
+    display: flex;
+    justify-content: center;
+    background-color: rgb(88, 96, 168);
+    font-weight: bold;
+}

@@ -1,0 +1,31 @@
+<div [formGroup]="formProduct">
+    <div class="container">
+        <h3 *ngIf="!product.canEdit">AGREGAR UN PRODUCTO</h3>
+        <h3 *ngIf="product.canEdit">EDITAR PRODUCTO</h3>
+        <mat-form-field appearance="fill">
+            <mat-label>Producto</mat-label>
+            <input formControlName="product" type="text" matInput placeholder="Ej.: Televisor">
+            <mat-hint>*Ingrese el nombre del producto.</mat-hint>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Descripción</mat-label>
+            <input formControlName="descript" type="text" matInput placeholder="Ej.: Este producto sirve para...">
+            <mat-hint>*Ingrese una descripción.</mat-hint>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Precio</mat-label>
+            <input formControlName="price" type="number" matInput placeholder="Ej.: 2500">
+            <mat-hint>*Ingrese solo números, no signos.</mat-hint>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Imágen</mat-label>
+            <input formControlName="img" type="text" matInput placeholder="Ej.: https://google.com/image">
+            <mat-hint>*Ingrese un link de referencia.</mat-hint>
+        </mat-form-field>
+    </div>
+    <div class="btns">
+        <button mat-dialog-close mat-button>Cancelar</button>
+        <button *ngIf="!product.canEdit" (click)="createProd()" mat-raised-button color="primary">Añadir</button>
+        <button *ngIf="product.canEdit" (click)="editProd()" mat-raised-button color="primary">Editar</button>
+    </div>
+</div>

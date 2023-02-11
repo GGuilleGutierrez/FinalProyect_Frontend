@@ -1,0 +1,23 @@
+.container {
+    background-color: rgb(172, 78, 78);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h4 {
+    margin: 0px;
+    padding: 10px;
+}
+
+button {
+    margin: 8px;
+    height: 35px;
+    width: 50px;
+    border-radius: 5px;
+    background-color: aquamarine;
+}
+
+button:hover {
+    background-color: rgb(49, 88, 75);
+}

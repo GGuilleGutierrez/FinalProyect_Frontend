@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="close">
+        <button mat-dialog-close mat-icon-button>
+            <mat-icon>close</mat-icon>
+        </button>
+    </div>
+    <mat-card-header>
+        <mat-card-title-group>
+            <mat-card-title>{{product.product}}</mat-card-title>
+            <mat-card-subtitle>${{product.price}}</mat-card-subtitle>
+        </mat-card-title-group>
+    </mat-card-header>
+    <div class="imgydesc">
+        <img mat-card-xl-image src="{{product.img}}">
+        <mat-card-content>
+            {{product.descript}}
+        </mat-card-content>
+    </div>
+    <div class="btns">
+        <button (click)="openDialogFormEdit()" mat-raised-button
+            color="primary"><mat-icon>edit</mat-icon>EDITAR</button>
+        <button (click)="openDialogConfirmDelete()" mat-raised-button
+            color="warn"><mat-icon>delete</mat-icon>ELIMINAR</button>
+    </div>
+</div>
