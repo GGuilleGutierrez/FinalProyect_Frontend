@@ -8,6 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
+  providers: [],
   declarations: [HeaderComponent, FooterComponent, FormproductComponent],
   imports: [
     CommonModule,

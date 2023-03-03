@@ -1,3 +1,19 @@
-<mat-toolbar>
-    <span>MANEJADOR DE PRODUCTOS</span>
-</mat-toolbar>
+<header>
+    <div class="container">
+        <a [routerLink]="['/']" routerLinkActive="router-link-active"><img class="logo"
+                src="../../../assets/img/OurCar.jpg" alt="Logo de OurCar"></a>
+        <nav>
+            <a [routerLink]="['/products']" routerLinkActive="router-link-active">PRODUCTOS</a>
+            <a [routerLink]="['/users']" *ngIf="isAdmin" routerLinkActive="router-link-active">USUARIOS</a>
+            <a href="#contact" *ngIf="!isAdmin">CONTACTO</a>
+            <a [routerLink]="['/cart']" routerLinkActive="router-link-active"
+                *ngIf="!isAdmin"><mat-icon>shopping_cart</mat-icon></a>
+            <a (click)="openDialogLogin()" *ngIf="!sessionOn"><svg xmlns="http://www.w3.org/2000/svg" width="25"
+                    height="25" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+                    <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                </svg></a>
+            <button (click)="openDialogAccount()" *ngIf="sessionOn" mat-raised-button color="primary">Hola
+                {{userLog.name}}! <mat-icon>keyboard_arrow_down</mat-icon></button>
+        </nav>
+    </div>
+</header>

@@ -6,7 +6,7 @@
     </div>
     <mat-card-header>
         <mat-card-title-group>
-            <mat-card-title>{{product.product}}</mat-card-title>
+            <mat-card-title>{{product.name}}</mat-card-title>
             <mat-card-subtitle>${{product.price}}</mat-card-subtitle>
         </mat-card-title-group>
     </mat-card-header>
@@ -17,9 +17,11 @@
         </mat-card-content>
     </div>
     <div class="btns">
-        <button (click)="openDialogFormEdit()" mat-raised-button
+        <button mat-raised-button *ngIf="!isAdmin" color="primary"><mat-icon>add_shopping_cart</mat-icon>AGREGAR AL
+            CARRITO</button>
+        <button (click)="openDialogFormEdit()" *ngIf="isAdmin" mat-raised-button
             color="primary"><mat-icon>edit</mat-icon>EDITAR</button>
-        <button (click)="openDialogConfirmDelete()" mat-raised-button
+        <button (click)="openDialogConfirmDelete()" *ngIf="isAdmin" mat-raised-button
             color="warn"><mat-icon>delete</mat-icon>ELIMINAR</button>
     </div>
 </div>

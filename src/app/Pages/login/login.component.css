@@ -1,0 +1,40 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 10px;
+    background-color: rgb(108, 158, 158);
+}
+
+mat-form-field {
+    margin-top: 15px;
+}
+
+.btns {
+    display: flex;
+    justify-content: center;
+    background-color: rgb(108, 158, 158);
+}
+
+button {
+    margin: 15px 15px;
+}
+
+.register {
+    display: flex;
+    justify-content: center;
+    background-color: rgb(108, 158, 158);
+    padding-bottom: 15px;
+    font-size: 13px;
+}
+
+.register a {
+    text-decoration: none;
+    color: black;
+    margin-bottom: 15px;
+}
+
+.register a:hover {
+    color: blue;
+}

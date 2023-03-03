@@ -1,0 +1,24 @@
+<app-header></app-header>
+<div class="container">
+  <mat-card *ngFor="let user of users">
+    <mat-card-header>
+      <mat-card-title>{{user.name}} {{user.surname}}</mat-card-title>
+      <mat-card-subtitle>{{user.role}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <span>
+        <p>Email:</p> {{user.email}}
+      </span>
+      <span>
+        <p>Teléfono de contacto:</p> {{user.phone}}
+      </span>
+      <span>
+        <p>Fecha de alta de cuenta:</p> {{user.createdAt}}
+      </span>
+    </mat-card-content>
+    <mat-card-actions>
+      <button (click)="openDialogConfirmDeleteAccount(user)" mat-stroked-button color="warn">Eliminar usuario</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
+<app-footer></app-footer>

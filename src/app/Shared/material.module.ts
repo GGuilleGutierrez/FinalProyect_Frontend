@@ -9,7 +9,11 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-
+import { AppRoutingModule } from '../app-routing.module';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatSelectModule } from '@angular/material/select';
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
   declarations: [],
@@ -23,8 +27,13 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatDialogModule,
     FormsModule,
     Ng2SearchPipeModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AppRoutingModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatSelectModule,
+    MatTableModule
   ],
-  exports: [MatToolbarModule, MatInputModule, MatButtonModule, MatIconModule, MatCardModule, MatDialogModule, FormsModule, Ng2SearchPipeModule, ReactiveFormsModule, MatSnackBarModule]
+  exports: [MatTableModule, MatSelectModule, MatNativeDateModule, MatDatepickerModule, AppRoutingModule, MatToolbarModule, MatInputModule, MatButtonModule, MatIconModule, MatCardModule, MatDialogModule, FormsModule, Ng2SearchPipeModule, ReactiveFormsModule, MatSnackBarModule]
 })
 export class MaterialModule { }

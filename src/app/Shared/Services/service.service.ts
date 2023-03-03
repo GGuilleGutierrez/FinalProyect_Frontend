@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { ILog, Login } from '../interfaces/login.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,6 @@ export class ServiceService {
   constructor(private http: HttpClient) { }
 
   getProds(url: string) {
-    console.log(url);
     return this.http.get(url)
   }
 
@@ -22,6 +22,22 @@ export class ServiceService {
   }
 
   deleteProducts(url: string) {
+    return this.http.delete(url)
+  }
+
+  register(url: string, data: any) {
+    return this.http.post(url, data)
+  }
+
+  login(url: string, data: any) {
+    return this.http.post(url, data)
+  }
+
+  getUsers(url: string) {
+    return this.http.get(url)
+  }
+
+  deleteUser(url: string) {
     return this.http.delete(url)
   }
 }

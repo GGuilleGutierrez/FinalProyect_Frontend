@@ -1,0 +1,48 @@
+<app-header></app-header>
+<div [formGroup]="formRegister">
+    <div class="container">
+        <h3>REGISTRATE</h3>
+        <mat-form-field appearance="fill">
+            <mat-label>Nombre/s</mat-label>
+            <input formControlName="name" type="text" matInput placeholder="Ej.: Juan Tomás">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Apellido/s</mat-label>
+            <input formControlName="surname" type="text" matInput placeholder="Ej.: Vega Pérez">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>E-mail</mat-label>
+            <input formControlName="email" type="email" matInput placeholder="Ej.: juantvegap@example.com">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Fecha de nacimiento</mat-label>
+            <input formControlName="birth" matInput [matDatepicker]="picker">
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Teléfono</mat-label>
+            <input formControlName="phone" type="tel" matInput placeholder="Ej.: 3516771879">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Rol</mat-label>
+            <mat-select formControlName="role">
+                <mat-option value="user">Usuario</mat-option>
+                <mat-option value="admin">Admin</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Contraseña</mat-label>
+            <input pattern="^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$" formControlName="password" type="password"
+                matInput>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Confirme contraseña</mat-label>
+            <input formControlName="confirmpassword" type="password" matInput>
+        </mat-form-field>
+    </div>
+    <div class="btns">
+        <button (click)="register()" mat-raised-button color="primary">Registrate</button>
+    </div>
+</div>
+<app-footer></app-footer>

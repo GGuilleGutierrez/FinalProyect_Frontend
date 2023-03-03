@@ -1,0 +1,22 @@
+<app-header></app-header>
+<section id="hero">
+    <div class="nos">
+        <h2>NOSOTROS</h2>
+        <p>Somos una empresa familiar que se dedica hace años a la comercialización y distribución de tanto
+            repuestos como accesorios para automóviles. Buscamos lograr que el cliente se haga de las mejores
+            opciones del mercado para una experiencia satisfactoria a la hora de reparar o adornar su vehículo.
+            Nuestros empleados están completamente capacitados y son sumamentes idóneos para asesorar y
+            recomendar a quien lo necesite.
+            Trabajamos con las mejores marcas.</p>
+        <img class="marcas" src="../../../assets/img/marcas-repuestos.jpg" alt="Marcas">
+    </div>
+    <div class="repyacc">
+        <div class="repuestos">
+            <a [routerLink]="['/products']" routerLinkActive="router-link-active"><button>REPUESTOS</button></a>
+        </div>
+        <div class="accesorios">
+            <a [routerLink]="['/products']"><button>ACCESORIOS</button></a>
+        </div>
+    </div>
+</section>
+<app-footer></app-footer>

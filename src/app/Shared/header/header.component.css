@@ -1,6 +1,35 @@
-mat-toolbar {
-    display: flex;
-    justify-content: center;
-    background-color: rgb(88, 96, 168);
+.logo {
+    height: 60px;
+    padding-top: 10px;
+    border-radius: 10px;
+    margin-left: 20px;
+}
+
+a {
+    text-decoration: none;
+    margin-right: 15px;
+    color: black;
+}
+
+a:hover {
     font-weight: bold;
+}
+
+header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #64a4c2;
+}
+
+header nav {
+    display: flex;
+    align-items: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+header button {
+    font-style: white;
+    margin-right: 15px;
 }

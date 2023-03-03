@@ -5,8 +5,8 @@ import { ProductdetailComponent } from '../productdetail/productdetail.component
 import { ServiceService } from '../../Shared/Services/service.service';
 import { Product } from 'src/app/Shared/interfaces/product.interface';
 import { ProductForm } from 'src/app/Shared/interfaces/productform';
-
-
+import { ILog } from 'src/app/Shared/interfaces/login.interface';
+import decode from 'jwt-decode';
 @Component({
   selector: 'app-productlist',
   templateUrl: './productlist.component.html',
@@ -15,12 +15,18 @@ import { ProductForm } from 'src/app/Shared/interfaces/productform';
 export class ProductlistComponent {
   constructor(public dialog: MatDialog, private service: ServiceService) { }
 
+  userLog!: ILog;
+  token = localStorage.getItem("token");
+  user: any;
+  isAdmin!: boolean;
+
   ngOnInit(): void {
-    this.getProducts()
+    this.getProducts();
+    this.ctrlRole();
   }
 
-  public products: any = []
-  public searchProd: string = "";
+  products: any = []
+  searchProd: string = "";
 
   openDialogFormCreate() {
     const create: ProductForm = {
@@ -32,7 +38,6 @@ export class ProductlistComponent {
     })
   }
 
-
   openDialogMore(product: Product) {
     this.dialog.open(ProductdetailComponent, {
       width: "45%",
@@ -41,12 +46,19 @@ export class ProductlistComponent {
   }
 
   getProducts() {
-    this.service.getProds('http://localhost:3001').subscribe(resp => {
-      this.products = resp;
+    this.service.getProds('http://localhost:3001').subscribe(res => {
+      this.products = res;
       return this.products
     })
   }
 
-
-
+  ctrlRole() {
+    this.user = decode(JSON.stringify(this.token))
+    this.userLog = this.user.userLog;
+    if (this.userLog.role == "user") {
+      this.isAdmin = false;
+    } else {
+      this.isAdmin = true;
+    }
+  }
 }

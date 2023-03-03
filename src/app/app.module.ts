@@ -4,6 +4,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PagesModule } from './Pages/pages.module';
 
+
 @NgModule({
   declarations: [
     AppComponent

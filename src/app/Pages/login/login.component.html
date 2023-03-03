@@ -1,0 +1,20 @@
+<div [formGroup]="formLogin">
+    <div class="container">
+        <h3>INGRESA A TU CUENTA</h3>
+        <mat-form-field appearance="fill">
+            <mat-label>E-mail</mat-label>
+            <input formControlName="email" type="email" matInput placeholder="Ej.: email@example.com">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Contraseña</mat-label>
+            <input formControlName="password" type="password" matInput>
+        </mat-form-field>
+    </div>
+    <div class="btns">
+        <button mat-dialog-close mat-button>Cancelar</button>
+        <button (click)="login()" mat-raised-button color="primary">Ingresar</button>
+    </div>
+    <div class="register">
+        <span>¿No tenés cuenta? <a [routerLink]="['/register']" mat-dialog-close
+                routerLinkActive="router-link-active">Registrate aquí</a></span>
+    </div>

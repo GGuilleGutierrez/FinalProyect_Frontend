@@ -3,13 +3,14 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ProductForm } from '../interfaces/productform';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ServiceService } from '../Services/service.service';
-import { MatSnackBar, MatSnackBarRef } from '@angular/material/snack-bar';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-formproduct',
   templateUrl: './formproduct.component.html',
   styleUrls: ['./formproduct.component.css']
 })
+
 export class FormproductComponent {
   formProduct!: FormGroup;
   product!: ProductForm;
@@ -27,7 +28,7 @@ export class FormproductComponent {
   ngOnInit(): void {
 
     this.formProduct = this.formBuilder.group({
-      product: ["", Validators.required],
+      name: ["", Validators.required],
       descript: ["", Validators.required],
       price: ["", Validators.required],
       img: ["", Validators.required]
@@ -35,7 +36,7 @@ export class FormproductComponent {
 
     if (this.product.canEdit) {
       this.formProduct.setValue({
-        "product": this.product.product,
+        "name": this.product.name,
         "descript": this.product.descript,
         "price": this.product.price,
         "img": this.product.img,

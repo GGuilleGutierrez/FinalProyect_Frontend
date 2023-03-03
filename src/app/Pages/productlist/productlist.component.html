@@ -8,7 +8,7 @@
         <mat-icon>search</mat-icon>
       </div>
     </mat-form-field>
-    <button (click)="openDialogFormCreate()" mat-fab extended color="primary">
+    <button (click)="openDialogFormCreate()" *ngIf="isAdmin" mat-fab extended color="primary">
       <mat-icon>queue</mat-icon>
       AGREGAR UN PRODUCTO
     </button>
@@ -16,7 +16,7 @@
   <mat-card *ngFor="let product of products | filter: searchProd" class="example-card">
     <mat-card-header>
       <div>
-        <mat-card-title>{{product.product}}</mat-card-title>
+        <mat-card-title>{{product.name}}</mat-card-title>
         <button (click)="openDialogMore(product)" mat-raised-button color="primary">VER MÁS</button>
       </div>
       <img mat-card-sm-image src="{{product.img}}">
@@ -25,16 +25,5 @@
       {{product.descript}}
     </mat-card-content>
   </mat-card>
-
-
-
-
-
 </div>
-
-
-
-
-
-
 <app-footer></app-footer>
