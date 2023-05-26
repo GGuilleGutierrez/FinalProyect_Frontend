@@ -4,21 +4,33 @@
     justify-content: space-between;
     align-items: center;
     padding-top: 10px;
-    background-color: rgb(108, 158, 158);
+    background-color: rgb(192, 117, 117);
+}
+ 
+.camps {
+    display: flex;
+}
+
+.camps div{
+    margin: 20px;
 }
 
 mat-form-field {
     margin-top: 15px;
 }
 
-mat-hint {
+textarea{
+    max-height: 350px;
+}
+
+mat-hint { 
     font-size: 10px;
 }
 
 .btns {
     display: flex;
     justify-content: center;
-    background-color: rgb(108, 158, 158);
+    background-color: rgb(192, 117, 117);
 }
 
 button {

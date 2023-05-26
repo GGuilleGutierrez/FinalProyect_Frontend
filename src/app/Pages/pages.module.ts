@@ -9,13 +9,16 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { AccountComponent } from './account/account.component';
 import { UserlistComponent } from './userlist/userlist.component';
+import { RegisterAdminComponent } from './register-admin/register-admin.component';
+import { CartComponent } from './cart/cart.component';
+
 @NgModule({
   providers: [ServiceService],
-  declarations: [ProductlistComponent, ProductdetailComponent, HomeComponent, RegisterComponent, LoginComponent, AccountComponent, UserlistComponent],
+  declarations: [CartComponent, RegisterAdminComponent, ProductlistComponent, ProductdetailComponent, HomeComponent, RegisterComponent, LoginComponent, AccountComponent, UserlistComponent, RegisterAdminComponent],
   imports: [
     CommonModule,
     SharedModule
   ],
-  exports: [ProductlistComponent, ProductdetailComponent, HomeComponent, RegisterComponent, LoginComponent, SharedModule]
+  exports: [CartComponent, RegisterAdminComponent, ProductlistComponent, ProductdetailComponent, HomeComponent, RegisterComponent, LoginComponent, SharedModule]
 })
 export class PagesModule { }

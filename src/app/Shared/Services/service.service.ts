@@ -1,11 +1,12 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { ILog, Login } from '../interfaces/login.interface';
+import { EventEmitter, Injectable, Output } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ServiceService {
+
+  @Output() toCart: EventEmitter<any> = new EventEmitter();
 
   constructor(private http: HttpClient) { }
 
@@ -25,7 +26,11 @@ export class ServiceService {
     return this.http.delete(url)
   }
 
-  register(url: string, data: any) {
+  registerUser(url: string, data: any) {
+    return this.http.post(url, data)
+  }
+
+  registerAdmin(url: string, data: any) {
     return this.http.post(url, data)
   }
 
@@ -39,6 +44,19 @@ export class ServiceService {
 
   deleteUser(url: string) {
     return this.http.delete(url)
+  }
+
+  preferenceId!: any;
+
+  buy(url: string, cart: any) {
+    return this.http.post<any>(url, {cart} ).subscribe(response => {
+      this.preferenceId = response.preferenceId;
+      window.location.href = `https://www.mercadopago.com.ar/checkout/v1/redirect?preference_id=${this.preferenceId}`;
+      localStorage.removeItem("listCart");
+      localStorage.removeItem("badge");
+    }, error => {
+      console.log(error);
+    })
   }
 }
 

@@ -1,7 +1,18 @@
 <app-header></app-header>
-<section id="hero">
-    <div class="nos">
-        <h2>NOSOTROS</h2>
+
+<body>
+
+<div *ngIf= "images && images.length > 0" class="carousel-container">
+  <a [routerLink]="['/products']" routerLinkActive="router-link-active"><img *ngFor="let image of images; let i = index" src="{{image.src}}" alt="{{image.alt}}" [ngClass]="{'image-active': selectIndex === i}" class="fade"></a>
+    <div *ngIf="indicators" class="carousel-dot-container">
+        <span *ngFor="let dot of images; let i = index" class="dot" [ngClass]="{'active': selectIndex === i}" (click)="selectImg(i)"> 
+        </span>
+    </div>
+</div>
+
+<section id="hero"> 
+    <div class="nos"> 
+        <h1>NOSOTROS</h1>
         <p>Somos una empresa familiar que se dedica hace años a la comercialización y distribución de tanto
             repuestos como accesorios para automóviles. Buscamos lograr que el cliente se haga de las mejores
             opciones del mercado para una experiencia satisfactoria a la hora de reparar o adornar su vehículo.
@@ -19,4 +30,17 @@
         </div>
     </div>
 </section>
+
+<h2>BEST SELLERS...</h2>
+<section class="bestS">
+  <mat-card *ngFor="let product of bestS" style="background-image: url({{product.img}});background-size:contain; background-repeat: no-repeat" class="card">
+    <span>
+      <p>{{product.name}}</p>
+      <button (click)="openDialogMore(product)" mat-raised-button color="warn">VER MÁS</button>
+    </span>
+  </mat-card>
+</section>
+
 <app-footer></app-footer>
+
+</body>

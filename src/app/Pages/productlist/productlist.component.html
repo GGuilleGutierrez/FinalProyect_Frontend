@@ -1,5 +1,7 @@
 <app-header></app-header>
+
 <div class="container">
+  
   <div class="searchyadd">
     <mat-form-field class="example-full-width">
       <mat-label>¿Qué producto estas buscando?</mat-label>
@@ -8,22 +10,35 @@
         <mat-icon>search</mat-icon>
       </div>
     </mat-form-field>
-    <button (click)="openDialogFormCreate()" *ngIf="isAdmin" mat-fab extended color="primary">
+    <button (click)="openDialogFormCreate()" *ngIf="isAdmin" mat-fab extended color="warn">
       <mat-icon>queue</mat-icon>
       AGREGAR UN PRODUCTO
     </button>
   </div>
-  <mat-card *ngFor="let product of products | filter: searchProd" class="example-card">
+
+  <div class="cards">
+  <mat-card *ngFor="let product of products | filter: searchProd " class="card">
     <mat-card-header>
-      <div>
-        <mat-card-title>{{product.name}}</mat-card-title>
-        <button (click)="openDialogMore(product)" mat-raised-button color="primary">VER MÁS</button>
-      </div>
-      <img mat-card-sm-image src="{{product.img}}">
+      <mat-card-title>{{product.name}}</mat-card-title>
     </mat-card-header>
-    <mat-card-content>
-      {{product.descript}}
-    </mat-card-content>
+    <img mat-card-image src="{{product.img}}">
+    <mat-card-subtitle>
+      <p>{{product.descript}}</p>
+     </mat-card-subtitle>
+    <mat-card-actions>
+      <span>${{product.price}}</span>
+      <button (click)="openDialogMore(product)" mat-raised-button color="warn">VER MÁS</button>
+    </mat-card-actions>
   </mat-card>
+  </div>
+<!-- 
+  <mat-paginator showFirstLastButtons [length]="totalItems"
+    [pageIndex]="currentPag"
+    [pageSize]="pageSize"
+    [pageSizeOptions]="[5,10]"
+    (page)="onPageChange($event)">
+  </mat-paginator> -->
+
 </div>
+
 <app-footer></app-footer>

@@ -3,17 +3,32 @@
         <a [routerLink]="['/']" routerLinkActive="router-link-active"><img class="logo"
                 src="../../../assets/img/OurCar.jpg" alt="Logo de OurCar"></a>
         <nav>
+            <button *ngIf="sessionOn && !isAdmin" matBadge="{{badge}}" matBadgeColor="warn" matBadgeSize="large"  mat-raised-button color="warn" [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                <mat-icon>shopping_cart</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+                <div class="prevCart">
+                    <div *ngIf="listCart.length == 0">
+                        <p>Aún no hay productos agregados al carrito!</p>
+                    </div>
+                    <mat-card *ngFor="let product of listCart">
+                        <mat-card-content>
+                            <span class="prodName">{{product.name}} ({{product.amount}})</span > <br>
+                            <span  class="prodPrice">${{product.price}}</span>
+                        </mat-card-content>
+                    </mat-card>
+                    <button [routerLink]="['/cart']" routerLinkActive="router-link-active" *ngIf="listCart.length != 0" mat-stroked-button>Ir al carrito...</button>
+                </div>
+            </mat-menu>
             <a [routerLink]="['/products']" routerLinkActive="router-link-active">PRODUCTOS</a>
             <a [routerLink]="['/users']" *ngIf="isAdmin" routerLinkActive="router-link-active">USUARIOS</a>
             <a href="#contact" *ngIf="!isAdmin">CONTACTO</a>
-            <a [routerLink]="['/cart']" routerLinkActive="router-link-active"
-                *ngIf="!isAdmin"><mat-icon>shopping_cart</mat-icon></a>
             <a (click)="openDialogLogin()" *ngIf="!sessionOn"><svg xmlns="http://www.w3.org/2000/svg" width="25"
                     height="25" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
                     <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
                 </svg></a>
-            <button (click)="openDialogAccount()" *ngIf="sessionOn" mat-raised-button color="primary">Hola
+            <button (click)="openDialogAccount()" *ngIf="sessionOn" mat-raised-button color="warn">Hola
                 {{userLog.name}}! <mat-icon>keyboard_arrow_down</mat-icon></button>
         </nav>
     </div>
-</header>
+</header>  

@@ -4,24 +4,40 @@
             <mat-icon>close</mat-icon>
         </button>
     </div>
-    <mat-card-header>
-        <mat-card-title-group>
-            <mat-card-title>{{product.name}}</mat-card-title>
-            <mat-card-subtitle>${{product.price}}</mat-card-subtitle>
-        </mat-card-title-group>
-    </mat-card-header>
-    <div class="imgydesc">
-        <img mat-card-xl-image src="{{product.img}}">
-        <mat-card-content>
-            {{product.descript}}
-        </mat-card-content>
+    <div class="prod-info">
+        <div class="img-price">
+            <mat-card-title-group>
+                <mat-card-title>{{product.name}}</mat-card-title>
+                <mat-card-subtitle>Stock: {{product.stock}}</mat-card-subtitle>
+            </mat-card-title-group>
+            <img mat-card-xl-image src="{{product.img}}">
+            <div class="price"> ${{product.price}}</div>
+            <div class="rating" *ngIf="!isAdmin && userLog">
+                <mat-icon *ngFor="let icon of maxRatingArr; let index=index" (mouseenter)="handleMouseEnter(index)"
+                    (mouseleave)="handleMouseLeave()" (click)="rating(index)"
+                    [ngClass]="{'checked': selectedStar>index}">star</mat-icon>
+            </div>
+
+            <div class="rating" *ngIf="!isAdmin && !userLog">
+                <mat-icon *ngFor="let icon of maxRatingArr">star</mat-icon>
+            </div>
+        </div>
+        <div class="descript">
+            <mat-card-content>
+                <b>Descripción:</b>
+                <p>{{product.descript}}</p>
+            </mat-card-content>
+        </div>
     </div>
+
     <div class="btns">
-        <button mat-raised-button *ngIf="!isAdmin" color="primary"><mat-icon>add_shopping_cart</mat-icon>AGREGAR AL
-            CARRITO</button>
+        <button mat-raised-button *ngIf="!isAdmin && !userLog"
+            disabled><mat-icon>add_shopping_cart</mat-icon><del>AGREGAR AL CARRITO</del> Debes estar logeado para poder
+            comprar.</button>
+        <button (click)="addToCart(product)" *ngIf="!isAdmin && userLog" mat-fab extended color="warn"><mat-icon>add_shopping_cart</mat-icon>AGREGAR
+            AL CARRITO</button>
         <button (click)="openDialogFormEdit()" *ngIf="isAdmin" mat-raised-button
             color="primary"><mat-icon>edit</mat-icon>EDITAR</button>
         <button (click)="openDialogConfirmDelete()" *ngIf="isAdmin" mat-raised-button
             color="warn"><mat-icon>delete</mat-icon>ELIMINAR</button>
     </div>
-</div>

@@ -1,5 +1,5 @@
-import { Component, Inject } from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
+import { Component } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ServiceService } from 'src/app/Shared/Services/service.service';
 import { ConfirmDeleteAccountComponent } from 'src/app/Shared/confirmDeleteAccount/confirm-delete-account.component';
@@ -10,6 +10,7 @@ import { User } from 'src/app/Shared/interfaces/user.interface';
   templateUrl: './userlist.component.html',
   styleUrls: ['./userlist.component.css']
 })
+
 export class UserlistComponent {
 
   massageDeleteUserOk: string = "Se ha eliminado la cuenta exitosamente."
@@ -17,16 +18,16 @@ export class UserlistComponent {
 
   constructor(private service: ServiceService, private _snackBar: MatSnackBar, public dialog: MatDialog) { }
 
-  users: any = [];
+  users:any=[];
+  displayedColumns: string[] = ['id', 'name', 'surname', 'email', 'date', 'phone', 'role', 'actions'];
 
   ngOnInit(): void {
-    this.getUsers()
+    this.getUsers();
   }
 
   getUsers() {
     this.service.getUsers('http://localhost:3001/users').subscribe(res => {
-      this.users = res;
-      return this.users
+      this.users=res;
     })
   }
 

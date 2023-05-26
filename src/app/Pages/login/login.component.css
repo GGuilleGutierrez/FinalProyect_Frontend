@@ -1,10 +1,10 @@
-.container {
+.container { 
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
     padding-top: 10px;
-    background-color: rgb(108, 158, 158);
+    background-color: #2b2323; 
 }
 
 mat-form-field {
@@ -14,7 +14,7 @@ mat-form-field {
 .btns {
     display: flex;
     justify-content: center;
-    background-color: rgb(108, 158, 158);
+    background-color: #2b2323;
 }
 
 button {
@@ -24,7 +24,7 @@ button {
 .register {
     display: flex;
     justify-content: center;
-    background-color: rgb(108, 158, 158);
+    background-color: #2b2323;
     padding-bottom: 15px;
     font-size: 13px;
 }
@@ -36,5 +36,5 @@ button {
 }
 
 .register a:hover {
-    color: blue;
+    color: #d13636;
 }

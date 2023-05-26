@@ -5,4 +5,6 @@ export interface ProductForm {
     descript?: string;
     price?: number;
     img?: string;
+    stock?: number;
+    amount?: number;
 }

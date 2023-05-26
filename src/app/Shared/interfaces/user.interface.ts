@@ -6,6 +6,6 @@ export interface User {
     date: Date;
     phone: string;
     role: string;
-    password: string;
-    confirmpassword: string;
+    password?: string;
+    confirmpassword?: string;
 }

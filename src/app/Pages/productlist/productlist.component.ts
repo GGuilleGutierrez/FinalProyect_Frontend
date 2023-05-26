@@ -7,12 +7,13 @@ import { Product } from 'src/app/Shared/interfaces/product.interface';
 import { ProductForm } from 'src/app/Shared/interfaces/productform';
 import { ILog } from 'src/app/Shared/interfaces/login.interface';
 import decode from 'jwt-decode';
+import { PageEvent } from '@angular/material/paginator';
 @Component({
   selector: 'app-productlist',
   templateUrl: './productlist.component.html',
   styleUrls: ['./productlist.component.css']
 })
-export class ProductlistComponent {
+export class ProductlistComponent{
   constructor(public dialog: MatDialog, private service: ServiceService) { }
 
   userLog!: ILog;
@@ -21,16 +22,17 @@ export class ProductlistComponent {
   isAdmin!: boolean;
 
   ngOnInit(): void {
+    // this.getItems();
     this.getProducts();
     this.ctrlRole();
   }
 
-  products: any = []
+  products: any = [];
   searchProd: string = "";
 
   openDialogFormCreate() {
     const create: ProductForm = {
-      canEdit: false
+      canEdit: false, 
     }
     this.dialog.open(FormproductComponent, {
       width: "40%",
@@ -48,7 +50,6 @@ export class ProductlistComponent {
   getProducts() {
     this.service.getProds('http://localhost:3001').subscribe(res => {
       this.products = res;
-      return this.products
     })
   }
 
@@ -61,4 +62,23 @@ export class ProductlistComponent {
       this.isAdmin = true;
     }
   }
+
+  // currentPag = 0;
+  // pageSize = 12;
+  // totalItems = 0;
+  // itemsPage = []; 
+
+  // onPageChange(event: PageEvent){
+  //   this.getItems(); 
+  //   this.currentPag = event.pageIndex;
+  //   this.pageSize = event.pageSize;
+  // }
+
+  // getItems(){
+  //   this.getProducts();
+  //   const startIndex = this.currentPag * this.pageSize;
+  //   const endIndex = startIndex + this.pageSize;
+  //   this.itemsPage = this.products.slice(startIndex, endIndex);
+  //   this.totalItems = this.products.length;
+  // }
 }

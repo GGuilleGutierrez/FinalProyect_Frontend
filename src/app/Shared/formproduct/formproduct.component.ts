@@ -21,7 +21,6 @@ export class FormproductComponent {
   massageError: string = "Ups! Ha ocurrido un problema. Intente nuevamente."
 
   constructor(private formBuilder: FormBuilder, @Inject(MAT_DIALOG_DATA) public data: ProductForm, private service: ServiceService, private _snackBar: MatSnackBar) {
-
     this.product = data;
   }
 
@@ -31,7 +30,9 @@ export class FormproductComponent {
       name: ["", Validators.required],
       descript: ["", Validators.required],
       price: ["", Validators.required],
-      img: ["", Validators.required]
+      img: ["", Validators.required],
+      stock: ["", Validators.required],
+      amount: 0
     })
 
     if (this.product.canEdit) {
@@ -40,6 +41,8 @@ export class FormproductComponent {
         "descript": this.product.descript,
         "price": this.product.price,
         "img": this.product.img,
+        "stock": this.product.stock,
+        "amount": 0
       })
     }
 

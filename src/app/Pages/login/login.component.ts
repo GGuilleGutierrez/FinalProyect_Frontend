@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
-
 import { ServiceService } from 'src/app/Shared/Services/service.service';
 import { HeaderComponent } from 'src/app/Shared/header/header.component';
 import { Login } from 'src/app/Shared/interfaces/login.interface';
@@ -21,7 +20,7 @@ export class LoginComponent {
 
   massageLogOk: string = "Ingresando a su cuenta..."
   massageNoValid: string = "Porfavor, revise todos los campos requeridos."
-  massageError: string = "Ups! Ha ocurrido un problema. Intente nuevamente."
+  massageError: string = "E-mail y/o contraseña incorrecto/s. Intente nuevamente..."
 
   constructor(
     private service: ServiceService,
@@ -49,7 +48,7 @@ export class LoginComponent {
           this._snackBar.open(this.massageLogOk)._dismissAfter(3000),
             setTimeout(() => window.location.reload(), 3000)
         }, error: () => {
-          this._snackBar.open(this.massageError)._dismissAfter(3000)
+          this._snackBar.open(this.massageError)._dismissAfter(5000)
         }
       })
     } else {

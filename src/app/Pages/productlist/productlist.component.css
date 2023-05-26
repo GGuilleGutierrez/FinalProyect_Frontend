@@ -1,6 +1,5 @@
 .container {
-    min-height: 90%;
-    background-color: rgb(104, 197, 197);
+    background-color: #2b2323;
     padding-bottom: 50px;
 }
 
@@ -23,31 +22,54 @@
 mat-form-field div {
     display: flex;
     justify-content: space-between;
-
 }
 
-.example-card {
-    max-width: 600px;
-    margin: 50px 0px 0px 50px;
-    background-color: #68837f8e;
+.cards{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.card {
+    max-width: 350px;
+    margin: 50px 0px;
+    background-color: rgb(192, 117, 117);
+    border-radius: 10px;
+}
+
+.card:hover{
+    transform: scale(1.1);
 }
 
 mat-card-title {
+    font-size: 23px;
     font-weight: bold;
+    margin-bottom: 10px;
 }
 
-mat-card-content {
-    max-width: 300px;
+img {
+    min-height: 380px;
+}
+
+mat-card-subtitle p{
+    margin-left: 10px;
+    max-width: 270px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
 
-mat-card-header div {
+mat-card-actions{
     display: flex;
-    width: 500px;
+    justify-content: space-between;
 }
 
-mat-card-header button {
-    margin-left: 15px;
+mat-card-actions span{
+    font-weight: bold;
+    font-size: 20px;
+}
+ 
+mat-paginator{
+    background-color: rgb(192, 117, 117);
+    color: #2b2323;
 }

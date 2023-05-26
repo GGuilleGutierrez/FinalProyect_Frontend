@@ -1,25 +1,28 @@
 .logo {
-    height: 60px;
-    padding-top: 10px;
-    border-radius: 10px;
+    height: 70px;
+    width: 120px;
     margin-left: 20px;
+    margin-top: 6px;
 }
 
 a {
+    font-size: 21px;
     text-decoration: none;
-    margin-right: 15px;
-    color: black;
+    margin-right: 25px;
+    color: rgb(192, 117, 117);
 }
 
 a:hover {
     font-weight: bold;
-}
+    color: #d13636;
+    cursor: pointer;
+} 
 
 header .container {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #64a4c2;
+    background-color: #131212;
 }
 
 header nav {
@@ -30,6 +33,28 @@ header nav {
 }
 
 header button {
-    font-style: white;
     margin-right: 15px;
+} 
+
+.prevCart {
+    background-color: rgb(192, 117, 117);
+    padding: 10px;
+}
+
+mat-card {
+    margin: 5px;
+}
+
+.prevCart button {
+    margin-top: 20px;
+}
+
+.prodName{
+    font-weight:400;
+    font-size: 13px;
+}
+
+.prodPrice{
+    font-size: 10px;
+    font-weight: lighter;
 }

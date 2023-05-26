@@ -1,0 +1,37 @@
+<app-header></app-header>
+<h1>TÚ CARRITO</h1>
+<div class="container">
+    <div class="container-cards">
+        <div class="prodCard" *ngFor="let product of listCart">
+            <div class="img">
+                <img src="{{product.img}}" alt="Producto por comprar">
+            </div>
+            <div class="prodInfo">
+                <div class="title">
+                    <h4>{{product.name}}</h4>
+                    <button (click)="deleteProdFromCart(product)" mat-button><mat-icon>delete_forever</mat-icon></button>
+                </div>
+                <div class="mult">
+                    <button *ngIf="product.amount == 1" disabled mat-mini-fab color="warn">-</button>
+                    <button *ngIf="product.amount > 1" (click)="subtractProd(product)" mat-mini-fab color="warn">-</button>
+                    <p>{{product.amount}}</p>
+                    <button (click)="addProd(product)" mat-mini-fab color="warn">+</button>
+                </div>
+             <div class="price">
+                    <p>${{product.price * product.amount}}</p>
+                </div> 
+            </div>
+        </div>
+    </div>
+    <div class="total" >
+        <div>
+            <h3>TOTAL: ${{calcTotal()}}</h3>
+        </div>
+        <div class="actions">
+            <button (click)="buyCart()" mat-fab extended color="warn">FINALIZAR COMPRA</button>
+            <button [routerLink]="['/products']" routerLinkActive="router-link-active" mat-stroked-button color="warn">SEGUIR COMPRANDO</button>
+        </div>
+    </div>
+</div>
+
+<app-footer></app-footer>

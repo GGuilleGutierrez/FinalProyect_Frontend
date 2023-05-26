@@ -1,7 +1,7 @@
 .container {
-    background-color: rgb(108, 158, 158);
+    background-color: rgb(192, 117, 117);
 }
-
+  
 .close {
     height: 30px;
     display: flex;
@@ -9,9 +9,38 @@
     align-items: center;
 }
 
-.imgydesc {
+.prod-info {
     display: flex;
-    padding: 10px;
+}
+
+.img-price{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+}
+
+.price {
+    background-color: brown;
+    width: 60%;
+    height: 40px;
+    margin: 20px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+img{
+    margin: 10px;
+}
+
+.descript {
+    display: flex;
+    flex-direction: column;
+    font-size: 15px;
+    margin-top: 50px;
 }
 
 mat-card-content {
@@ -31,4 +60,12 @@ mat-card-title {
 
 .btns button {
     margin: 10px;
+}
+
+.checked{
+    color: orange;
+}
+
+mat-icon {
+    cursor: pointer;
 }

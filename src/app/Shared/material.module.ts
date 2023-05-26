@@ -14,6 +14,9 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTableModule } from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatBadgeModule} from '@angular/material/badge';
+import {MatMenuModule} from '@angular/material/menu';
 
 @NgModule({
   declarations: [],
@@ -32,8 +35,11 @@ import { MatTableModule } from '@angular/material/table';
     MatDatepickerModule,
     MatNativeDateModule,
     MatSelectModule,
-    MatTableModule
+    MatTableModule,
+    MatPaginatorModule,
+    MatBadgeModule,
+    MatMenuModule
   ],
-  exports: [MatTableModule, MatSelectModule, MatNativeDateModule, MatDatepickerModule, AppRoutingModule, MatToolbarModule, MatInputModule, MatButtonModule, MatIconModule, MatCardModule, MatDialogModule, FormsModule, Ng2SearchPipeModule, ReactiveFormsModule, MatSnackBarModule]
+  exports: [MatMenuModule, MatBadgeModule, MatPaginatorModule, MatTableModule, MatSelectModule, MatNativeDateModule, MatDatepickerModule, AppRoutingModule, MatToolbarModule, MatInputModule, MatButtonModule, MatIconModule, MatCardModule, MatDialogModule, FormsModule, Ng2SearchPipeModule, ReactiveFormsModule, MatSnackBarModule]
 })
 export class MaterialModule { }

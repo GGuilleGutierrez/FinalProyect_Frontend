@@ -1,5 +1,5 @@
 .container {
-    background-color: rgb(141, 168, 228);
+    background-color: rgb(192, 117, 117);
 }
 
 mat-card-actions {
@@ -9,7 +9,7 @@ mat-card-actions {
 }
 
 p {
-    font-weight: bold;
+    font-weight: bold; 
 }
 
 .close {

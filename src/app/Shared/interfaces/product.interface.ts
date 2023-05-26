@@ -4,4 +4,6 @@ export interface Product {
     descript: string;
     price: number;
     img: string;
+    stock: number;
+    amount?: any;
 }

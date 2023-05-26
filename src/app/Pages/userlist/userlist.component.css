@@ -1,20 +1,11 @@
 .container {
   min-height: 90%;
-  background-color: rgb(104, 197, 197);
+  background-color: #2b2323;
   padding: 15px 15px;
 }
 
-mat-card {
-  max-width: 400px;
-  background-color: #68837f8e;
-  margin: 20px;
-}
-
-mat-card-content p {
-  font-weight: bold;
-}
-
-mat-card-title {
-  font-weight: bold;
-  background-color: rgb(105, 137, 228);
+table {
+  width: 100%;
+  background-color: rgb(192, 117, 117);
+  margin-top: 30px;
 }

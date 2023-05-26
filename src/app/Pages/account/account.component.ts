@@ -23,9 +23,11 @@ export class AccountComponent {
   }
 
   logOut() {
-    localStorage.removeItem("token")
+    localStorage.removeItem("token");
+    localStorage.removeItem("listCart");
+    localStorage.removeItem("badge");
     this._snackBar.open(this.massageLogOutOk)._dismissAfter(3000),
-      setTimeout(() => (window.location.reload()), 3000)
+      setTimeout(() => (window.location.href="http://localhost:4200"), 3000)
   }
 
   openDialogConfirmDeleteAccount() {

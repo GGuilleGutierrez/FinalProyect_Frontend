@@ -5,8 +5,6 @@ import { FormproductComponent } from './formproduct/formproduct.component';
 import { MaterialModule } from './material.module';
 import { HeaderComponent } from './header/header.component';
 import { HttpClientModule } from '@angular/common/http';
-
-
 @NgModule({
   providers: [],
   declarations: [HeaderComponent, FooterComponent, FormproductComponent],
